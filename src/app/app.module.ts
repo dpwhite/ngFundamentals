@@ -12,16 +12,17 @@ import {
   CreateSessionComponent, 
   SessionListComponent
 } from './events/index';
-
+import { JQ_TOKEN, ToastrService, CollapsibleWellComponent, SimpleModalComponent, ModalTriggerDirective} from './common/index';
 import { EventsAppComponent } from './events-app.component';
 import { NavBarComponent } from './nav/nav-bar/nav-bar.component';
-import { ToastrService } from './common/toastr.service';
 import { appRoutes } from './routes';
-import { CollapsibleWellComponent } from './common/collapsible-well.component';
 import { RouterModule } from '@angular/router';
 import { Error404Component } from './errors/404.component';
 import { AuthService } from './user/auth.service';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
+
+let jQuery = window['$'];
 
 @NgModule({
   declarations: [
@@ -34,13 +35,16 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
     Error404Component,
     CreateSessionComponent,
     SessionListComponent,
-    CollapsibleWellComponent
+    CollapsibleWellComponent, 
+    ModalTriggerDirective,
+    SimpleModalComponent
   ],
   imports: [
     CommonModule,
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
+    NgbModule,
     RouterModule.forRoot(appRoutes)    
   ],
   providers: [
@@ -51,6 +55,7 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
       provide: 'canDeactivateCreateEvent', 
       useValue: checkDirtyState
     }, 
+    {provide: JQ_TOKEN, useValue: jQuery},
     EventListResolver, 
     AuthService
   ],
