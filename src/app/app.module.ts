@@ -10,6 +10,8 @@ import {
   EventListResolver, 
   EventRouteActivator,
   CreateSessionComponent, 
+  UpvoteComponent,
+  VoterService,
   SessionListComponent
 } from './events/index';
 import { JQ_TOKEN, ToastrService, CollapsibleWellComponent, SimpleModalComponent, ModalTriggerDirective} from './common/index';
@@ -37,7 +39,8 @@ let jQuery = window['$'];
     SessionListComponent,
     CollapsibleWellComponent, 
     ModalTriggerDirective,
-    SimpleModalComponent
+    SimpleModalComponent,
+    UpvoteComponent
   ],
   imports: [
     CommonModule,
@@ -57,6 +60,7 @@ let jQuery = window['$'];
     }, 
     {provide: JQ_TOKEN, useValue: jQuery},
     EventListResolver, 
+    VoterService,
     AuthService
   ],
   bootstrap: [EventsAppComponent],
