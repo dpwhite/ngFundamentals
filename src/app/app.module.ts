@@ -12,7 +12,8 @@ import {
   CreateSessionComponent, 
   UpvoteComponent,
   VoterService,
-  SessionListComponent
+  SessionListComponent,
+  LocationValidator
 } from './events/index';
 import { JQ_TOKEN, ToastrService, CollapsibleWellComponent, SimpleModalComponent, ModalTriggerDirective} from './common/index';
 import { EventsAppComponent } from './events-app.component';
@@ -40,7 +41,8 @@ let jQuery = window['$'];
     CollapsibleWellComponent, 
     ModalTriggerDirective,
     SimpleModalComponent,
-    UpvoteComponent
+    UpvoteComponent,
+    LocationValidator
   ],
   imports: [
     CommonModule,

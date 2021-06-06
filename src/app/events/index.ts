@@ -4,3 +4,4 @@ export * from './events-list-resolver.service';
 export * from './events-list/events-list.component';
 export * from '../shared/index';
 export * from '../events/event-details/index';
+export * from './location-validator.directive';
